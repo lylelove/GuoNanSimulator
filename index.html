@@ -13,19 +13,27 @@
     <link href="/GuoNanSimulator/js/chunk-vendors.68fe4d71.js" rel="preload" as="script">
     <link href="/GuoNanSimulator/css/chunk-vendors.a16c4353.css" rel="stylesheet">
     <link href="/GuoNanSimulator/css/app.47094c85.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
 </head>
 
 <body><noscript><strong>We're sorry but guonan doesn't work properly without JavaScript enabled. Please enable it to
             continue.</strong></noscript>
     <div id="app"></div>
     <br><br><br>
+    <div id="waline"></div>
+    <script>
+        Waline({
+            el: '#waline',
+            serverURL: 'https://blog-api-lylelove.vercel.app',
+        });
+    </script>
     <script src="/GuoNanSimulator/js/chunk-vendors.68fe4d71.js"></script>
     <script src="/GuoNanSimulator/js/app.e1175a50.js"></script>
-    <script src="https://giscus.app/client.js" data-repo="lylelove/GuoNanSimulator" data-repo-id="R_kgDOGpltfw"
+    <!-- <script src="https://giscus.app/client.js" data-repo="lylelove/GuoNanSimulator" data-repo-id="R_kgDOGpltfw"
         data-category="Announcements" data-category-id="DIC_kwDOGpltf84CAnN5" data-mapping="pathname"
         data-reactions-enabled="1" data-emit-metadata="0" data-theme="light" data-lang="zh-CN" crossorigin="anonymous"
         async>
-    </script>
+    </script> -->
 </body>
 
 </html>
