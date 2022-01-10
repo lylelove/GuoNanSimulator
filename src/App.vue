@@ -1,15 +1,11 @@
 <template>
   <div id="app">
-    <h1>国男大冒险</h1>
+    <h1>国男大冒险</h1><div id="waline"></div>
     <event ref="event" :class="gameover == true ? 'none' : ''"></event>
     <result ref="result" :class="gameover == false ? 'none' : ''" ></result>
-    <el-dialog title="留言" :visible.sync="dialogVisible" >
-      <div id="waline"></div>
-    </el-dialog>
     <el-dialog title="关于" :visible.sync="dialogVisible2" >
       <div>本项目来源于<a href="https://github.com/Fengzi2333">fengzi2333</a>的<a href="https://github.com/Fengzi2333/GuoNanSimulator">GuoNanSimulator</a>项目。<br><br>经<a href="https://github.com/lylelove">lylelove</a>使用Vue重构。</div>
     </el-dialog>
-    <el-button class="bottomleft" icon="el-icon-s-comment" @click="dialogVisible = true" circle></el-button>
     <el-button class="bottomright" icon="el-icon-info" @click="dialogVisible2 = true"  circle></el-button>
   </div>
 </template>
@@ -22,14 +18,12 @@ export default {
   components: {
     Event,
     Result
-    
   },
   data() {
     return {
       gameover:false,
       gameon:true,
       gamesence:0,
-      dialogVisible: false,
       dialogVisible2: false,
       event_list:[
         {
