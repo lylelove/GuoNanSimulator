@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div v-if="resultData">
         <el-row type="flex" justify="center">
             <el-col :span="12"> 
-                <p v-html="resmsg"></p><br>
+                <p v-html="resultData.res"></p><br>
                 <br>
                 <p>结局</p>
-                <p v-html="picture"></p>
-                <el-button @click="again" type="danger" plain >如果能重来</el-button>
+                <p v-html="resultData.pic"></p>
+                <el-button @click="requestRestart" type="danger" plain >如果能重来</el-button>
             </el-col>
         </el-row>
     </div>
@@ -15,17 +15,15 @@
 <script>
 export default {
     name: 'Result',
-
-    data() {
-        return {
-            resmsg:"",
-            picture:"",
-        };
+    props: {
+        resultData: {
+            type: Object,
+            required: false // Can be null if no result yet
+        }
     },
-
     methods: {
-        again(){
-            this.$root.$children[0].afresh();
+        requestRestart(){
+            this.$emit('restart-game');
         }
     },
 };

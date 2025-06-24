@@ -1,37 +1,28 @@
 <template>
     <div id="common">
         <el-row type="flex" justify="center">
-            <el-col :span="12">        
-                <p>{{msg}}</p>
+            <el-col :span="12" v-if="eventData">
+                <p>{{eventData.event}}</p>
                     <br/>
-                <el-button v-html="btn1" @click="f_btn1" type="success" plain ></el-button><br/><br/>
-                <el-button  v-html="btn2" @click="f_btn2" type="success" plain ></el-button>
+                <el-button v-html="eventData.btn1" @click="handleChoice('btn1res')" type="success" plain ></el-button><br/><br/>
+                <el-button v-html="eventData.btn2" @click="handleChoice('btn2res')" type="success" plain ></el-button>
             </el-col>
     </el-row>
-
-
     </div>
 </template>
 
 <script>
 export default {
     name: 'Event',
-
-    data() {
-        return {
-            msg:"你是某国男性,简称国男，20岁,是学生，就读于某高校。今天你没有课， 你决定:",
-            btn1:"待在宿舍",
-            btn2:"出去逛逛",
-        };
+    props: {
+        eventData: {
+            type: Object,
+            required: true
+        }
     },
-
     methods: {
-        f_btn1(){
-            this.$root.$children[0].btnfun1()
-        },
-        f_btn2(){
-            this.$root.$children[0].btnfun2()
-            console.log(123)
+        handleChoice(choiceKey) {
+            this.$emit('player-choice', choiceKey);
         }
     },
 };
